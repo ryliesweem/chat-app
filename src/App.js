@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import TextInput from './TextInput';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [messages,setMessages] = useState([{text:'hello'}])
+  return <div className="App">
 
+    <header className="header">
+      <i class="far fa-comments logo"></i> Chatter
+    </header>
+
+    <div>
+      <div className="message-row">
+        <div className="message">
+          {messages[0].text}
+        </div>
+      </div>
+      <div className="message-row">
+        <div className="message">
+          test message!
+        </div>
+      </div>
+      
+      <TextInput 
+        send={(t)=> setMessages([{text:t}])}
+      />
+
+    </div>
+
+  </div>
+}
 export default App;
