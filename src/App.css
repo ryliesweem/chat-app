@@ -59,17 +59,22 @@
 input {
   width: 100%;
   padding: 0.5rem;
-  margin-right: 1rem;
   border: none;
   border-radius: 0.25rem;
+  position: relative;
 }
 
 button {
   background-color: #085078;
   color: white;
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
   border: none;
   border-radius: 0.25rem;
+  position: absolute;
+  right: 1.5rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  outline: none;
 }
 
 button:hover {
