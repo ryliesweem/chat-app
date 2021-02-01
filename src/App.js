@@ -10,20 +10,20 @@ function App() {
       <i class="far fa-comments logo"></i> Chatter
     </header>
 
-    <div>
-      <div className="message-row">
-        <div className="message">
-          {messages[0].text}
-        </div>
-      </div>
-      <div className="message-row">
-        <div className="message">
-          test message!
-        </div>
-      </div>
+    <div className="messages">
+
+        {messages.map((m,i)=> {
+          return <div key={i} className="message-row">
+            <div className="message">
+              {m.text}
+            </div>
+          </div>
+        })}
       
       <TextInput 
-        send={(t)=> setMessages([{text:t}])}
+        send={(t)=> setMessages(
+          [...messages, {text:t}]
+          )}
       />
 
     </div>
