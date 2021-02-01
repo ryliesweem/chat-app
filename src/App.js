@@ -1,32 +1,30 @@
 import { useState } from 'react';
 import './App.css';
 import TextInput from './TextInput';
+import Message from './Message';
 
 function App() {
-  const [messages,setMessages] = useState([{text:'hello'}])
+  const [messages,setMessages] = useState([])
   return <div className="App">
 
     <header className="header">
-      <i class="far fa-comments logo"></i> Chatter
+      <i class="far fa-comments logo"></i><h1>Chatter</h1>
     </header>
 
     <div className="messages">
 
-        {messages.map((m,i)=> {
-          return <div key={i} className="message-row">
-            <div className="message">
-              {m.text}
-            </div>
-          </div>
-        })}
+      {messages.map((m,i)=> {
+        return <Message key={i} {...m} />
+      })}
       
-      <TextInput 
-        send={(t)=> setMessages(
-          [...messages, {text:t}]
-          )}
-      />
 
     </div>
+
+    <TextInput 
+        send={(t)=> setMessages(
+          [{text:t}, ...messages]
+          )}
+      />
 
   </div>
 }
