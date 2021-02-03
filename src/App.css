@@ -76,13 +76,16 @@ input {
   font-family: 'lores-12', sans-serif;
   background-color: black;
   color: #06FF05;
+}
+
+.text-input input {
   width: 100%;
   padding: 0.5rem;
   border: none;
   position: relative;
 }
 
-::placeholder {
+.text-input ::placeholder {
   color: #06FF05;
   opacity: 0.4;
 }
@@ -90,12 +93,16 @@ input {
 button {
   background-color: #06FF05;
   color: black;
-  padding: 0.75rem;
   border: none;
-  position: absolute;
-  right: 1.5rem;
   cursor: pointer;
   outline: none;
+}
+
+.text-input button {
+  padding: 0.75rem;
+  position: absolute;
+  right: 1.5rem;
+  
 }
 
 button:hover {
@@ -116,6 +123,28 @@ button:focus {
     outline: none;
 }
 
+.name-picker {
+  display: flex;
+  margin-left: auto;
+  margin-right: 0.75rem;
+}
+
+.name-picker button {
+  padding: 0.35rem;
+}
+
+.name-picker input {
+  border: 1px solid #06FF05;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.name {
+  margin-right: 1rem;
+}
+
 .messages::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -128,4 +157,3 @@ button:focus {
   background-color:  #06FF05;
   outline: 1px solid black;
 }
-
