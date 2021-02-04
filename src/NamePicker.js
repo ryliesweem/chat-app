@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function NamePicker(){
+function NamePicker() {
     const [showInput, setShowInput] = useState(false)
     const [username, setUsername] = useState('')
 
@@ -16,7 +16,7 @@ function NamePicker(){
     }
 
     return <div className="name-picker">
-        <div className="name">{username}</div>
+        <div className="username"><span className="light">username: </span>{username}</div>
         <button onClick={()=>setShowInput(true)}>
             <i class="fas fa-edit"></i>
         </button>

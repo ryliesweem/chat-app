@@ -3,6 +3,7 @@
 
 .App {
   font-family: 'lores-12', sans-serif;
+  font-weight: 200;
   background: black;
   color: #06FF05;
   height: 100vh;
@@ -16,7 +17,7 @@
   background-color: black;
   color: #06FF05;
   border: 1px solid #06FF05;
-  font-weight: 700;
+  font-weight: 200;
   display: flex;
   align-items: center;
   height: 2.5rem;
@@ -27,8 +28,8 @@
 
 h1 {
   font-size: 1.5rem;
-  color: black;
-  background-color: #06FF05;
+  font-weight: 200;
+  color: #06FF05;
   padding: 0.15rem;
   
 }
@@ -124,7 +125,10 @@ button:focus {
 }
 
 .name-picker {
+  font-size: 1rem;
+  font-weight: 200;
   display: flex;
+  align-content: center;
   margin-left: auto;
   margin-right: 0.75rem;
 }
@@ -141,8 +145,15 @@ button:focus {
   margin-right: 1rem;
 }
 
-.name {
+.username {
+  font-size: 1rem;
+  padding-top: 0.2rem;
   margin-right: 1rem;
+}
+
+.light {
+  color: #06FF05;
+  opacity: 0.4;
 }
 
 .messages::-webkit-scrollbar {
