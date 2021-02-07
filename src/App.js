@@ -6,19 +6,20 @@ import NamePicker from './NamePicker';
 
 function App() {
   const [messages,setMessages] = useState([])
+  const [name,saveName] = useState('')
+
   return <div className="App">
 
     <header className="header">
       <i class="far fa-comments logo"></i><h1>Chatter</h1>
-      <NamePicker />
+      <NamePicker saveName={name=> saveName(name)} />
     </header>
 
     <div className="messages">
-
+      {name}
       {messages.map((m,i)=> {
         return <Message key={i} {...m} />
       })}
-      
 
     </div>
 

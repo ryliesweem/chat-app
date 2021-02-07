@@ -1,15 +1,20 @@
 import {useState} from 'react'
 
-function NamePicker() {
+function NamePicker(props) {
     const [showInput, setShowInput] = useState(false)
     const [username, setUsername] = useState('')
+
+    function save(){
+        props.saveName(username)
+        setShowInput(false)
+    }
 
     if (showInput) {
         return <div className="name-picker">
             <input value={username}
                 onChange={e=> setUsername(e.target.value)}
             />
-            <button onClick={()=>setShowInput(false)}>
+            <button onClick={save}>
                 <i class="fas fa-check"></i>
             </button>
         </div>
@@ -19,6 +24,7 @@ function NamePicker() {
         <div className="username"><span className="light">username: </span>{username}</div>
         <button onClick={()=>setShowInput(true)}>
             <i class="fas fa-edit"></i>
+            {props.saveName(username)}
         </button>
     </div>
 }
