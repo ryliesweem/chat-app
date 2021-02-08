@@ -6,17 +6,18 @@ import NamePicker from './NamePicker';
 
 function App() {
   const [messages,setMessages] = useState([])
-  const [name,saveName] = useState('')
+  const [username,setUsername] = useState(
+    localStorage.getItem('username') || ''
+  )
 
   return <div className="App">
 
     <header className="header">
       <i class="far fa-comments logo"></i><h1>Chatter</h1>
-      <NamePicker saveName={name=> saveName(name)} />
+      <NamePicker saveName={setUsername} />
     </header>
 
     <div className="messages">
-      {name}
       {messages.map((m,i)=> {
         return <Message key={i} {...m} />
       })}
@@ -24,10 +25,8 @@ function App() {
     </div>
 
     <TextInput 
-        send={(t)=> setMessages(
-          [{text:t}, ...messages]
-          )}
-      />
+      send={(t)=> setMessages([{text:t, name:username, date:new Date()}, ...messages])}
+    />
 
   </div>
 }

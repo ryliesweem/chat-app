@@ -1,7 +1,10 @@
+
+
 function Message(props){
     return <div className="message-row">
     <div className="message">
-      {props.text}
+      <div className="message-name">{props.name}</div>
+      <div className="message-text">{props.text}</div>
     </div>
   </div>
 }

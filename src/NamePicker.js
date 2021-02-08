@@ -2,11 +2,14 @@ import {useState} from 'react'
 
 function NamePicker(props) {
     const [showInput, setShowInput] = useState(false)
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState(
+        localStorage.getItem('username') || ''
+    )
 
     function save(){
         props.saveName(username)
         setShowInput(false)
+        localStorage.setItem('username', username)
     }
 
     if (showInput) {
@@ -24,7 +27,6 @@ function NamePicker(props) {
         <div className="username"><span className="light">username: </span>{username}</div>
         <button onClick={()=>setShowInput(true)}>
             <i class="fas fa-edit"></i>
-            {props.saveName(username)}
         </button>
     </div>
 }
