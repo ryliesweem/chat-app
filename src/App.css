@@ -73,6 +73,7 @@ h1 {
   border-left: 1px solid #06FF05;
   margin: 0.75rem;
   display: inline-block;
+  margin-right: 1.5rem;
 }
 
 .message-name {
@@ -205,5 +206,9 @@ button:focus {
 
   .message-name {
     font-size: 0.8rem;
+  }
+
+  .message {
+    margin-right: 2.5rem;
   }
 }

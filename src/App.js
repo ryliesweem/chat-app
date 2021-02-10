@@ -4,9 +4,22 @@ import TextInput from './TextInput';
 import Message from './Message';
 import NamePicker from './NamePicker';
 import {db, useDB} from './db'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-  const messages = useDB()
+function Wrap() {
+  return <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route exact path="/:room" component={App} />
+    </Switch>
+  </BrowserRouter>
+}
+
+function App(props) {
+  const room = props.match.params.room || 'home'
+  console.log("CHAT ROOM", room)
+
+  const messages = useDB(room)
   const [username,setUsername] = useState(
     localStorage.getItem('username') || ''
   )
@@ -27,9 +40,9 @@ function App() {
     </div>
 
     <TextInput 
-      send={(t)=> db.send({text:t, name:username, date:new Date()})}
+      send={(t)=> db.send({text:t, name:username, date:new Date(), room})}
     />
 
   </div>
 }
-export default App;
+export default Wrap;
